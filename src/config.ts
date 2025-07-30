@@ -48,9 +48,9 @@ type NavigationConfig = {
 
 export const SITE = (): SiteConfig => {
   return {
-    title: 'AutoIPC - Automatiza las subidas de IPC y los contratos de arrendamiento',
+    title: 'AutoIPC - Automatiza las actualizaciones de renta y genera contratos de arrendamiento en segundos',
     description:
-      'AutoIPC es la plataforma para automatizar las subidas de IPC y los contratos de arrendamiento de manera sencilla.',
+      'AutoIPC es la plataforma digital que automatiza las actualizaciones de renta basadas en IPC o IRAV y los contratos de arrendamiento de manera sencilla.',
     author: 'Daniel García',
     siteUrl: 'https://autoipc.es/',
     ogImage: '/src/assets/images/og-image.webp', // Needs to be an absolute path /src/...
