@@ -32,14 +32,14 @@ const CTA = () => {
     }
 
     // Add the email to the url
-    window.history.pushState({}, '', `#pricing?email=${email}`);
+    window.history.pushState({}, '', `?email=${email}#pricing`);
 
     // Redirect the user to the pricing section #pricing
     // window.location.href = '#pricing';
     // document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
     const section = document.getElementById('pricing');
     if (section) {
-      const y = section.getBoundingClientRect().top + window.scrollY - 116;
+      const y = section.getBoundingClientRect().top + window.scrollY + 350;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
