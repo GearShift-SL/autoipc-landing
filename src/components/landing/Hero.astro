@@ -1,0 +1,82 @@
+---
+import { Icon } from 'astro-icon/components';
+import CTA from '~/components/landing/CTA';
+---
+
+<div class="max-w-7xl mx-auto px-4 mt-16 relative">
+  <div class="flex flex-col lg:flex-row items-center gap-12">
+    {/* Left Column - Main Content */}
+    <div class="flex-1 text-center lg:text-left">
+      {/* Badge */}
+      <div class="inline-flex items-center bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+        <Icon name="autoipc-logo" class="text-sm mr-2" />
+        #1 Automatización Inmobiliaria
+        <span class="ml-2">⭐⭐⭐⭐⭐</span>
+      </div>
+
+      {/* Main Heading */}
+      <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+        Olvídate de las
+        <span class="text-primary">actualizaciones de renta</span>
+      </h1>
+
+      {/* Features List */}
+      <div class="space-y-4 mb-8 text-left">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">📧</span>
+          <div>
+            <a
+              href="#how-to-use"
+              class="font-semibold underline decoration-2 decoration-primary hover:decoration-primary/50"
+              >Sube un contrato</a
+            >
+            <span class="text-gray-600">
+              → <a href="#feature-0" class="underline decoration-2 decoration-primary hover:decoration-primary/50"
+                >Actualizaciones de renta</a
+              > automáticas</span
+            >
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">📄</span>
+          <div>
+            <span class="font-semibold"
+              >Genera <a href="#feature-1" class="underline decoration-2 decoration-primary hover:decoration-primary/50"
+                >contratos de arrendamiento</a
+              > en segundos</span
+            >
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">📊</span>
+          <div>
+            <span class="font-semibold"
+              >Genera <a href="#feature-2" class="underline decoration-2 decoration-primary hover:decoration-primary/50"
+                >estadísticas</a
+              > de tus inmuebles</span
+            >
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">⚡</span>
+          <div>
+            <span class="text-gray-600 font-semibold"
+              >Y automatiza la <a
+                href="#feature-3"
+                class="underline decoration-2 decoration-primary hover:decoration-primary/50">gestión completa</a
+              > de tu cartera inmobiliaria</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Right Column - Signup Form */}
+    <div class="flex-1 max-w-md">
+      <CTA client:load />
+    </div>
+  </div>
+</div>

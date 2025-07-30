@@ -1,0 +1,100 @@
+---
+import FAQ from '~/components/landing/FAQ.astro';
+import Features from '~/components/landing/Features.astro';
+import FooterHero from '~/components/landing/FooterHero.astro';
+import Hero from '~/components/landing/Hero.astro';
+import Testimonials from '~/components/landing/Testimonials.astro';
+import Transformation from '~/components/landing/Transformation.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import AsSeenOn from '~/components/landing/AsSeenOn.astro';
+import Pricing from '~/components/landing/Pricing.tsx';
+import demoImage from '../assets/images/demo-image.png';
+---
+
+<PageLayout>
+  <section id="hero" class="scroll-mt-24">
+    <Hero />
+  </section>
+
+  <!-- <section id="demovideo">
+    <DemoVideo />
+  </section> -->
+
+  <section id="social-proof">
+    <AsSeenOn
+      logoLists={[
+        {
+          title: 'visto en',
+          logos: [
+            { name: 'Idealista', icon: 'idealista-logo', height: 12 },
+            { name: 'El Mundo', icon: 'el_mundo-logo', height: 8 },
+            { name: 'Gearshift', icon: 'gearshift-logo', height: 8 },
+          ],
+        },
+        {
+          title: 'usado por',
+          logos: [
+            { name: 'Rentake', icon: 'rentake-logo', height: 12 },
+            { name: 'Emissary', icon: 'emissary-logo', height: 12 },
+          ],
+        },
+      ]}
+    />
+  </section>
+
+  <!-- Separator -->
+  <div class="w-full max-w-5xl mx-auto px-4 my-5">
+    <hr class="border-gray-200" />
+  </div>
+
+  <section id="transformation">
+    <Transformation />
+  </section>
+
+  <section id="how-to-use" class="scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold mb-4">Cómo funciona</h2>
+      </div>
+
+      <!-- Numbered list of steps -->
+      <div class="flex flex-col gap-4 text-2xl">
+        <div>1. 📄 Sube tu contrato de arrendamiento a la plataforma</div>
+        <div>2. 🤖 Nuestra IA lo escanea y extrae los datos del contrato</div>
+        <div>3. 🧮 Calculamos la fecha y el importe de la actualización de renta</div>
+        <div>4. 📨 Generamos la actualización de renta y la enviamos a tu inquilino</div>
+        <div>5. ✅ Recibes la actualización de renta en tu correo electrónico</div>
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <Image src={demoImage} alt="Demo preview" class="mx-auto rounded-4xl shadow-lg" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- Separator -->
+  <div class="w-full max-w-5xl mx-auto px-4 my-5">
+    <hr class="border-gray-200" />
+  </div>
+
+  <section id="social-proof">
+    <Testimonials />
+  </section>
+
+  <section id="features" class="scroll-mt-24">
+    <Features />
+  </section>
+
+  <section id="faq" class="scroll-mt-24">
+    <FAQ />
+  </section>
+
+  <section id="pricing" class="scroll-mt-24">
+    <Pricing client:only="react" />
+  </section>
+
+  <section id="footer-hero">
+    <FooterHero />
+  </section>
+</PageLayout>

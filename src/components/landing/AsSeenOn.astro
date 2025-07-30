@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Logo {
+  name: string;
+  icon: string;
+  height?: number;
+}
+
+interface LogoList {
+  title: string;
+  logos: Logo[];
+}
+
+interface Props {
+  logoLists?: LogoList[];
+  className?: string;
+}
+
+const { logoLists, className = '' } = Astro.props;
+---
+
+<div class={`flex justify-center items-center w-full py-8 px-4 ${className}`}>
+  <div class="flex items-center gap-6 sm:gap-8 md:gap-12 overflow-x-auto max-w-full scrollbar-hide h-full">
+    <!-- As seen on section -->
+    {
+      logoLists && (
+        <>
+          {logoLists.map((logoList) => (
+            <>
+              <p class="text-gray-500 text-sm font-normal whitespace-nowrap flex-shrink-0">{logoList.title}</p>
+              {logoList.logos.map((logo) => (
+                <div class="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300 flex-shrink-0 h-full">
+                  <Icon
+                    name={logo.icon}
+                    class={`w-auto max-w-full grayscale ${logo.height ? `h-${logo.height}` : 'h-8'}`}
+                  />
+                </div>
+              ))}
+            </>
+          ))}
+        </>
+      )
+    }
+  </div>
+</div>

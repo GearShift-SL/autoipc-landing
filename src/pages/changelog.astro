@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '~/layouts/PageLayout.astro';
+import ChangelogCard from '~/components/changelog/ChangelogCard.astro';
+
+export async function getStaticPaths() {
+  const changelogEntries = await getCollection('changelog');
+
+  // Get all the unique languages from the changelog entries
+  const languages = [...new Set(changelogEntries.map((post) => post.id.split('/')[0]))];
+
+  // For each language, get all the changelog entries
+  const paths = languages.map((lang) => {
+    const changelogEntriesByLang = changelogEntries.filter((post) => post.id.split('/')[0] === lang);
+    return { params: { lang }, props: { changelogEntries: changelogEntriesByLang } };
+  });
+
+  // Return the paths for each language
+  return paths;
+}
+
+const { changelogEntries } = Astro.props;
+
+// Sort the entries by date, with the newest first
+const sortedEntries = changelogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<PageLayout>
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto py-8">
+      <h1 class="text-4xl font-bold mb-12 text-center">Actualizaciones de Estavia</h1>
+
+      <div class="space-y-16">
+        {sortedEntries.map((entry) => <ChangelogCard release={entry} />)}
+      </div>
+    </div>
+  </div>
+</PageLayout>

@@ -1,0 +1,129 @@
+---
+// FAQ.astro
+
+interface FAQItem {
+  question: string;
+  answer?: string;
+  href?: string;
+}
+
+const faq: FAQItem[] = [
+  {
+    question: 'Olvídate de crear y mandar actualizaciones de renta',
+    answer:
+      'AutoIPC calcula la fecha y el importe exacto de la actualización de renta acorde con la normativa vigente (IPC, IRAV o % fijo). Llegada la fecha de la actualización, AutoIPC mandará la comunicación a tu inquilino y te facilitará un certificado de envío.',
+  },
+  {
+    question: 'Envía actualizaciones de renta a tus inquilinos automáticamente',
+    answer:
+      'AutoIPC mandará la comunicación a tu inquilino y te facilitará un certificado de envío. Llegada la fecha de la actualización, AutoIPC mandará la comunicación a tu inquilino y te facilitará un certificado de envío.',
+  },
+  {
+    question: 'Genera contratos de alquiler en segundos sin plantillas',
+    answer:
+      'Con tus inmuebles en AutoIPC, simplemente introduce los datos de los nuevos inquilinos, selecciona un par de ajustes y AutoIPC generará el contrato de arrendamiento en segundos. Edita el contrato generado manualmente o decide si quieres que AutoIPC lo envíe directamente al inquilino para su firma. AutoIPC puede gestionar el proceso de firma por tí, generando un certificado con valided legal. Sin tener que preocuparte por agendar reuniones con los inquilinos.',
+  },
+  {
+    question: 'Analiza la rentabilidad de tus inmuebles en segundos',
+    answer:
+      'En AutoIPC, puedes ver la rentabilidad de tus inmuebles de un vistazo con nuestros gráficos y estadísticas. Extrae los datos a excel para poder analizarlos en profundidad o poder mandárselos a tu gestor. AutoIPC también es capaz de analizar el mercado de alquiler de tu zona y te ofrecerá recomendaciones sobre el precio de alquiler de tus inmuebles.',
+  },
+  {
+    question: 'Cómo analizar el mercado de alquiler de tu zona',
+    answer:
+      'AutoIPC analiza el mercado de alquiler de tu zona y te ofrecerá recomendaciones sobre el precio de alquiler de tus inmuebles. También te notificará cuando haya nuevos inmuebles en el mercado de alquiler de tu zona.',
+  },
+  {
+    question: 'Cómo se hace una actualización de renta (IPC, IRAV) con AutoIPC?',
+    answer:
+      'AutoIPC calcula la fecha y el importe exacto de la actualización de renta acorde con la normativa vigente (IPC, IRAV o % fijo). Llegada la fecha de la actualización, AutoIPC mandará la comunicación a tu inquilino y te facilitará un certificado de envío.',
+  },
+  {
+    question: 'Cómo puedo obtener un descuento de 6 meses gratis para AutoIPC cuando me registro?',
+    answer:
+      'AutoIPC ofrece un descuento de lanzamiento de 6 meses gratis cuando te registras por primera vez. Para obtener el descuento, simplemente haz clic en el botón de registro y utiliza el código de descuento "6MESESGRATIS" al finalizar el proceso de pago.',
+  },
+  {
+    question: 'Cuanto cuesta AutoIPC?',
+    answer:
+      'AutoIPC tiene un precio único de 2,37 euros al mes por inmueble, menos que un café. No hay ningún tipo de cargo oculto ni de suscripción anual. Puedes cancelar tu suscripción en cualquier momento.',
+  },
+];
+---
+
+<div class="w-full max-w-6xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+  <div class="text-center mb-12">
+    <h2 class="text-5xl font-semibold mb-2">Preguntas frecuentes</h2>
+  </div>
+
+  <div class="space-y-6">
+    {
+      faq.map((item, index) => (
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          {item.href ? (
+            <a href={item.href} class="w-full flex justify-between items-center px-6 py-4 text-left focus:outline-none">
+              <span class="text-lg font-medium">{item.question}</span>
+            </a>
+          ) : (
+            <button
+              class="w-full flex justify-between items-center px-6 py-4 text-left focus:outline-none hover:cursor-pointer hover:bg-blue-50"
+              id={`faq-button-${index + 1}`}
+              aria-expanded="false"
+              aria-controls={`faq-answer-${index + 1}`}
+            >
+              <span class="text-lg font-medium">{item.question}</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-blue-500 transform transition-transform duration-200"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                id={`faq-icon-${index + 1}`}
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          )}
+          {item.answer && (
+            <div class="px-6 py-4 bg-gray-50 hidden" id={`faq-answer-${index + 1}`}>
+              <p>{item.answer}</p>
+            </div>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const faqButtons = document.querySelectorAll('[id^="faq-button-"]');
+
+  faqButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const controlId = button.getAttribute('aria-controls');
+
+      if (!controlId) return;
+
+      const content = document.getElementById(controlId);
+      const iconId = button.querySelector('svg')?.id;
+
+      if (!content || !iconId) return;
+
+      const icon = document.getElementById(iconId);
+      if (!icon) return;
+
+      // Toggle expanded state
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+
+      // Toggle content visibility
+      if (isExpanded) {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      } else {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      }
+    });
+  });
+</script>
