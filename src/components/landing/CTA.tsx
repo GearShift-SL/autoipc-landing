@@ -170,6 +170,7 @@ const CTA = () => {
             shape="circle"
             text="signin_with"
             size="large"
+            width="100%"
           />
         </GoogleOAuthProvider>
 
