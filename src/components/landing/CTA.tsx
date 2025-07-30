@@ -160,19 +160,23 @@ const CTA = () => {
           Continuar con Google
         </button> */}
 
-        <GoogleOAuthProvider clientId="190711840111-2852nhfbm0ulo2232cabefkk2l7nbd80.apps.googleusercontent.com">
-          <GoogleLogin
-            onSuccess={handleGoogleLogin}
-            onError={() => console.log('Google Login Failed')}
-            useOneTap // Optional: show auto-login prompt
-            theme="outline"
-            type="standard"
-            shape="circle"
-            text="signin_with"
-            size="large"
-            width="100%"
-          />
-        </GoogleOAuthProvider>
+        <div className="w-full flex justify-center">
+          <GoogleOAuthProvider clientId="190711840111-2852nhfbm0ulo2232cabefkk2l7nbd80.apps.googleusercontent.com">
+            <div className="w-full">
+              <GoogleLogin
+                onSuccess={handleGoogleLogin}
+                onError={() => console.log('Google Login Failed')}
+                useOneTap // Optional: show auto-login prompt
+                theme="outline"
+                type="standard"
+                shape="circle"
+                text="signin_with"
+                size="large"
+                width="100%"
+              />
+            </div>
+          </GoogleOAuthProvider>
+        </div>
 
         <div className="text-center text-xs text-gray-500 mt-3">
           Si ya tienes una cuenta, te logearemos automáticamente
