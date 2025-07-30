@@ -3,23 +3,7 @@ import { getCollection } from 'astro:content';
 import PageLayout from '~/layouts/PageLayout.astro';
 import ChangelogCard from '~/components/changelog/ChangelogCard.astro';
 
-export async function getStaticPaths() {
-  const changelogEntries = await getCollection('changelog');
-
-  // Get all the unique languages from the changelog entries
-  const languages = [...new Set(changelogEntries.map((post) => post.id.split('/')[0]))];
-
-  // For each language, get all the changelog entries
-  const paths = languages.map((lang) => {
-    const changelogEntriesByLang = changelogEntries.filter((post) => post.id.split('/')[0] === lang);
-    return { params: { lang }, props: { changelogEntries: changelogEntriesByLang } };
-  });
-
-  // Return the paths for each language
-  return paths;
-}
-
-const { changelogEntries } = Astro.props;
+const changelogEntries = await getCollection('changelog');
 
 // Sort the entries by date, with the newest first
 const sortedEntries = changelogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());

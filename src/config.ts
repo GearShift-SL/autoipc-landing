@@ -89,7 +89,6 @@ export const NAVIGATION = (): NavigationConfig => ({
           { text: 'Cómo funciona AutoIPC', href: `/#features` },
           { text: 'Sobre nosotros', href: `/#about` },
           { text: 'Actualizaciones', href: `/changelog/` },
-          { text: 'Consultoría', href: `/consulting/` },
         ],
       },
       {
