@@ -68,8 +68,9 @@ const CTA = () => {
 
   // CSS animation styles
   const flashButtonStyle = {
-    animation: 'flashGradient 5s ease-in-out infinite',
+    animation: 'flashGradient 4s steps(1, jump-end) infinite',
     background: '#000000',
+    border: '2px solid #01a9f0',
   };
 
   // Add CSS keyframes to document head
@@ -120,10 +121,19 @@ const CTA = () => {
           <button
             type="submit"
             data-umami-event="Signup button"
-            className="flash-button block w-full text-white py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 mb-4 hover:cursor-pointer hover:scale-105 hover:shadow-lg"
+            className="hidden sm:block w-full text-white py-3 px-6 rounded-lg font-semibold text-center mb-4 hover:cursor-pointer hover:scale-105 hover:shadow-lg"
             style={flashButtonStyle}
           >
             Generar actualización de renta ahora →
+          </button>
+
+          <button
+            type="submit"
+            data-umami-event="Signup button"
+            className="block sm:hidden w-full text-white py-3 px-6 rounded-lg font-semibold text-center mb-4 hover:cursor-pointer hover:scale-105 hover:shadow-lg"
+            style={flashButtonStyle}
+          >
+            Empieza ahora →
           </button>
         </form>
 
@@ -131,7 +141,11 @@ const CTA = () => {
         <div className="text-center text-sm text-gray-600 mb-4">⭐ 1.162 actualizaciones generadas este mes</div>
 
         {/* <!-- Separator with " o " in the middle --> */}
-        <div className="w-full h-px bg-gray-200 my-4"></div>
+        <div className="flex justify-center items-center">
+          <div className="w-full h-px bg-gray-200 my-4"></div>
+          <span className="text-gray-500 px-2">o</span>
+          <div className="w-full h-px bg-gray-200 my-4"></div>
+        </div>
 
         {/* Google Button */}
         {/* <button
@@ -165,7 +179,7 @@ const CTA = () => {
             <GoogleLogin
               onSuccess={handleGoogleLogin}
               onError={() => console.log('Google Login Failed')}
-              useOneTap // Optional: show auto-login prompt
+              // useOneTap // Optional: show auto-login prompt
               theme="outline"
               type="standard"
               shape="circle"
