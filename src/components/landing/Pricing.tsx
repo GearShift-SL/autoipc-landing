@@ -217,7 +217,7 @@ const PricingTable = () => {
                 onClick={() => handleClick('investor')}
                 className="w-full cta-primary mb-6"
               >
-                {isYearly ? 'Comenzar plan anual' : 'Comenzar prueba gratis'}
+                {isYearly ? 'Comenzar plan anual' : 'Comenzar plan mensual'}
               </button>
             </div>
 
