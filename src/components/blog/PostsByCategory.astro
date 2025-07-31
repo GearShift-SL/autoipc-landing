@@ -14,6 +14,8 @@ const categoryPosts = posts
   .filter((post) => post.data.category.toLowerCase() === category.toLowerCase())
   .sort((a, b) => b.data.pubDatetime.valueOf() - a.data.pubDatetime.valueOf());
 
+console.log(categoryPosts);
+
 // Format date function
 const formatDate = (date: Date) => {
   return date.toLocaleDateString('es-ES', {
@@ -34,7 +36,7 @@ const formatDate = (date: Date) => {
       categoryPosts.map((post) => (
         <li class="group hover:bg-gray-50 rounded-lg transition-colors">
           <article class="p-4">
-            <a href={`/blog/${post.id.split('/')[1]}/`} class="block">
+            <a href={`/blog/${post.id}/`} class="block">
               <h2 class="text-xl font-semibold group-hover:text-blue-600 transition-colors">{post.data.title}</h2>
             </a>
             <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
