@@ -95,10 +95,10 @@ const CTA = () => {
   }, []);
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100 relative">
+    <div className="bg-white rounded-2xl shadow-2xl px-8 pb-8 pt-2 border border-gray-100 relative">
       {/* Green Speech Bubble Banner */}
       <div
-        className="absolute -top-6 -left-2 bg-green-400 text-white px-8 py-3 rounded-full text-sm font-medium shadow-lg transform rotate-10 whitespace-nowrap hidden sm:block"
+        className="hidden lg:block absolute -top-6 -left-2 bg-green-400 text-white px-8 py-3 rounded-full text-sm font-medium shadow-lg transform rotate-10 whitespace-nowrap"
         //   style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%);"
       >
         ✨ Genera tu primera actualización en menos de un minuto!
