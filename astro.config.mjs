@@ -15,6 +15,13 @@ export default defineConfig({
   },
 
   site: 'https://autoipc.es',
-  integrations: [icon(), sitemap(), mdx(), react()],
+  integrations: [
+    icon(),
+    sitemap({
+      filter: (page) => page !== 'https://autoipc.es/stripe-callback/',
+    }),
+    mdx(),
+    react(),
+  ],
   trailingSlash: 'always',
 });
