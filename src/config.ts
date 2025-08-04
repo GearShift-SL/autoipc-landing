@@ -48,7 +48,7 @@ type NavigationConfig = {
 
 export const SITE = (): SiteConfig => {
   return {
-    title: 'AutoIPC - Automatiza tus actualizaciones de renta (IPC o IRAV) en segundos',
+    title: 'AutoIPC - Automatiza tus actualizaciones de renta en segundos',
     description:
       'AutoIPC es la plataforma digital que automatiza las actualizaciones de renta basadas en IPC o IRAV y los contratos de arrendamiento de manera sencilla.',
     author: 'Daniel García',
