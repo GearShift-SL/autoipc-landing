@@ -80,7 +80,7 @@ export const NAVIGATION = (): NavigationConfig => ({
         links: [
           { text: 'Contacto', href: `/contact/` },
           { text: 'Blog', href: `/blog/` },
-          { text: 'Guías', href: `/category/guias/` },
+          { text: 'Guías', href: `/guias/` },
         ],
       },
       {

@@ -1,13 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 import PageLayout from '~/layouts/PageLayout.astro';
-import PostsByCategory from '~/components/blog/PostsByCategory.astro';
+import PostsByYear from '~/components/blog/PostsByYear.astro';
+import { slugify } from '~/utils/blog';
 
 export async function getStaticPaths() {
   // Create a flat array of paths for each language and category combination
   const paths: Array<{
-    params: { category: string };
-    props: { posts: any[] };
+    params: { categorySlug: string };
+    props: { posts: any[]; category: string };
   }> = [];
 
   // Get all the published posts
@@ -16,14 +17,14 @@ export async function getStaticPaths() {
   });
 
   // Get all the unique categories
-  const categories = [...new Set(posts.map((post) => post.data.category.toLowerCase()))];
+  const categories = [...new Set(posts.map((post) => post.data.category))];
 
   // Add paths for each category in this language
   categories.forEach((category) => {
-    const postsForCategory = posts.filter((post) => post.data.category.toLowerCase() === category);
+    const postsForCategory = posts.filter((post) => post.data.category === category);
     paths.push({
-      params: { category: category.toLowerCase() },
-      props: { posts: postsForCategory },
+      params: { categorySlug: slugify(category) },
+      props: { posts: postsForCategory, category: category },
     });
   });
 
@@ -31,8 +32,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { category } = Astro.params;
-const { posts } = Astro.props;
+const { posts, category } = Astro.props;
 
 // Create metadata for the page
 const metadata = {
@@ -43,6 +43,6 @@ const metadata = {
 
 <PageLayout metadata={metadata}>
   <div class="max-w-3xl mx-auto px-4 py-16">
-    <PostsByCategory posts={posts} category={category} />
+    <PostsByYear posts={posts} category={category} />
   </div>
 </PageLayout>

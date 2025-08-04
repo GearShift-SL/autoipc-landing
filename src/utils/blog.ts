@@ -1,6 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 
-const getSortedPosts = (posts: CollectionEntry<'blog'>[]) => {
+export const getSortedPosts = (posts: CollectionEntry<'blog'>[]) => {
   return posts.sort(
     (a, b) =>
       Math.floor(new Date(b.data.modDatetime ?? b.data.pubDatetime).getTime() / 1000) -
@@ -8,4 +8,9 @@ const getSortedPosts = (posts: CollectionEntry<'blog'>[]) => {
   );
 };
 
-export default getSortedPosts;
+export const slugify = (string: string) => {
+  return string
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+};

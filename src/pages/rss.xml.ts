@@ -3,7 +3,7 @@
 import rss from '@astrojs/rss';
 import { SITE } from '~/config';
 import { getCollection } from 'astro:content';
-import getSortedPosts from '~/utils/getSortedPosts';
+import { getSortedPosts } from '~/utils/blog';
 
 export async function GET(context: any) {
   const unsortedPosts = await getCollection('blog', ({ data }) => {
