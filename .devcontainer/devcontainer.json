@@ -7,7 +7,7 @@
     "context": ".."
   },
   // Port forwarding
-  "appPort": ["4321:4321"],
+  // "appPort": ["4321:4321"],
   // Extensions and settings
   "customizations": {
     "vscode": {
