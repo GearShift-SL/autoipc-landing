@@ -1,0 +1,188 @@
+---
+category: Guías
+title: 'Cómo automatizar la gestión de tus alquileres con Google Workspace'
+description: 'Aprende a usar Google Sheets, Calendar, Gmail y Drive para simplificar la gestión de tus alquileres sin pagar por software extra.'
+author: Daniel Garcia
+pubDatetime: 2025-11-03T12:00:48Z
+# modDatetime:
+draft: false
+tags:
+  - Automatización
+  - Herramientas
+  - Google Workspace
+  - Cobro de rentas
+# canonicalUrl:
+---
+
+import ArticleCTA from '~/components/blog/ArticleCTA.astro';
+
+## Introducción
+
+Ser propietario de varios pisos o casas en alquiler puede convertirse fácilmente en un trabajo a tiempo completo en 2025.
+
+Entre revisar contratos, recordar fechas de pago, atender incidencias o responder mensajes de inquilinos, la gestión diaria puede consumir más tiempo del que imaginas.
+
+Por suerte, con las herramientas gratuitas de Google Workspace, podemos centralizar y automatizar las tareas más repetitivas.
+
+En esta guía te mostraremos cómo automatizar paso a paso los procesos más tediosos de tus alquileres con herramientas accesibles, fáciles de usar y adaptadas a propietarios particulares o pequeños gestores inmobiliarios.
+
+<ArticleCTA />
+
+## 1. Centraliza la información en Google Sheets
+
+El primer paso para automatizar la gestión de tus alquileres es tener **toda la información en un solo sitio**. Google Sheets es ideal para esto: gratuito, accesible desde cualquier dispositivo y fácil de compartir.
+
+Con una simple hoja de cálculo puedes tener control total sobre tus inmuebles, inquilinos, contratos y pagos sin depender de ningún software externo.
+
+### 🧱 Crea tu panel principal
+
+Abre una nueva hoja en Google Sheets y añade una pestaña llamada **“Inmuebles”** o **“Gestión de alquileres”**.
+
+Luego, crea columnas como estas:
+
+| Inmueble    | Inquilino  | Email               | Teléfono  | Alquiler mensual | Fecha de inicio | Fecha de vencimiento | Estado de pago | Observaciones    |
+| ----------- | ---------- | ------------------- | --------- | ---------------- | --------------- | -------------------- | -------------- | ---------------- |
+| Piso Atocha | Juan Pérez | juanperez@email.com | 600123456 | 950 €            | 01/02/2025      | 31/01/2026           | Pagado         | Renovar en enero |
+
+> 💡 **Consejo:** Aplica colores o filtros para identificar pagos pendientes o contratos próximos a vencer.
+
+Si quieres una guía mucho más detallada y una plantilla para empezar a rellenar datos directamente puedes verla [aquí](#todo).
+
+Si trabajas con alguien más (una pareja, familiar o gestor), puedes compartir la hoja en modo **“ver”** o **“editar”**. Así todos tienen acceso actualizado a la misma información sin enviar documentos por correo.
+
+## 2. Automatiza recordatorios y tareas con Google Calendar
+
+Una vez tienes toda la información organizada en Google Sheets, el siguiente paso es **automatizar los recordatorios y tareas** que antes hacías manualmente.
+
+Google Calendar es perfecto para esto: gratuito, sincronizado con tu móvil y muy fácil de usar.
+
+### 🔔 Crea recordatorios automáticos de pagos y renovaciones
+
+- Abre **Google Calendar** y crea un evento recurrente para cada inmueble.
+- Ejemplo: “Comprobar pago – Piso Atocha” el día 1 de cada mes.
+- Añade una **notificación por correo o móvil** para ese mismo día o el anterior.
+- Usa **colores distintos** para cada inmueble o tipo de evento (pagos, mantenimiento, contratos).
+
+En esta guía de Google Calendar enseñamos cómo hacer todo esto en detalle.
+
+> 💡 **Consejo:** si gestionas varios pisos, crea un calendario separado por propiedad. Así puedes activar o desactivar su visibilidad fácilmente.
+
+### 📅 Añade tareas vinculadas desde Google Tasks
+
+- Desde Calendar, crea tareas como “Revisar contrato Piso Lavapiés” o “Actualizar precio de alquiler”.
+- Marca las tareas completadas directamente desde el calendario o la app de Google Tasks.
+- Esto te ayuda a llevar un seguimiento visual de tu gestión sin llenar tu bandeja de entrada.
+
+## 3. Gestiona la comunicación con Gmail
+
+La comunicación con tus inquilinos también puede automatizarse con las herramientas de Gmail.
+
+Así evitas redactar los mismos correos cada mes o perder mensajes entre tu bandeja personal.
+
+### ✉️ Usa plantillas de correo
+
+Activa las **plantillas** (Configuración → Avanzado → Plantillas) y guarda mensajes frecuentes como:
+
+- Recordatorios de pago
+- Confirmación de recepción de pagos
+- Aviso de renovación de contrato
+
+Solo tendrás que seleccionarlas y enviarlas con un clic.
+
+> Si quieres una herramienta que envíe automáticamente las actualizaciones de renta puedes probar [AutoIPC](https://autoipc.es/)
+
+### ⏰ Programa envíos automáticos
+
+Cuando redactes un correo, haz clic en la flecha junto a “Enviar” → **Programar envío**.  
+Útil para enviar recordatorios de pago o avisos fuera del horario laboral.
+
+### 🗂️ Organiza tus correos
+
+Usa **etiquetas** con el nombre del inmueble o del inquilino (por ejemplo: “Piso Atocha”, “Piso Lavapiés”).  
+Así tendrás todos los mensajes relacionados agrupados y fáciles de encontrar.
+
+## 4. Controla cobros y gastos desde Google Sheets
+
+Además de registrar la información básica, puedes usar **Google Sheets** para llevar el control de tus cobros y gastos sin complicarte.
+
+### 💰 Registra pagos y calcula rentabilidad
+
+Crea una pestaña llamada **“Finanzas”** con columnas como:
+
+| Fecha | Inmueble | Inquilino | Importe | Estado | Tipo (Ingreso/Gasto) |
+
+Usa funciones básicas como `SUMA` o `FILTRO` para calcular totales o ver solo los pagos pendientes.
+
+> 💡 **Tip:** aplica formato condicional para resaltar en rojo los pagos atrasados.
+
+Te enseñamos cómo hacer todo esto en [esta guía](#todo)
+
+### 📱 Añade gastos fácilmente
+
+Crea un **Google Form** vinculado a tu hoja para registrar gastos o incidencias desde el móvil.
+
+Cada envío se guardará automáticamente en la pestaña correspondiente, sin tocar la hoja manualmente.
+
+### 📊 Revisa tus resultados
+
+Dedica unos minutos cada mes a revisar totales e ingresos netos.
+
+Así tendrás una visión clara de la rentabilidad de cada inmueble y podrás tomar decisiones con datos.
+
+## 5. Gestiona documentos y contratos en Google Drive
+
+Tener todos los documentos organizados es clave para evitar pérdidas o confusiones.  
+Con **Google Drive**, puedes guardar contratos, facturas y certificados de cada inmueble en la nube y acceder desde cualquier dispositivo.
+
+### 📂 Organiza tus carpetas
+
+Crea una estructura clara, por ejemplo:  
+`/Alquileres/2025/Piso_Atocha/Contratos/`  
+`/Alquileres/2025/Piso_Lavapiés/Facturas/`
+
+Usa nombres consistentes para los archivos, como “Contrato_Piso_Atocha_2025.pdf”.
+
+### 🤝 Comparte con seguridad
+
+Si quieres dar acceso a un inquilino o gestor, comparte la carpeta con permiso de **solo lectura**.  
+Así pueden consultar documentos sin modificarlos.
+
+### 📸 Escanea desde el móvil
+
+Con la app de Drive puedes **escanear documentos** directamente y guardarlos en la carpeta correcta.  
+Ideal para facturas o contratos firmados en papel.
+
+## 6. Recoge incidencias con Google Forms
+
+Con **Google Forms** puedes crear un formulario simple para que tus inquilinos reporten incidencias o averías sin necesidad de llamadas o mensajes.
+
+### 🧰 Crea tu formulario
+
+Incluye campos como:
+
+- Nombre del inquilino
+- Inmueble
+- Descripción del problema
+- Fecha
+- Opción para subir una foto
+
+Las respuestas se guardan automáticamente en una hoja de **Google Sheets**, creando un historial útil para hacer seguimiento.
+
+### 📩 Activa notificaciones
+
+Configura el formulario para recibir un correo cuando haya una nueva respuesta.  
+Así podrás reaccionar rápido ante cualquier incidencia.
+
+### 📊 Usa los datos
+
+Revisa la hoja de respuestas cada mes para ver qué inmuebles generan más incidencias y priorizar mejoras.
+
+## Conclusión: Un sistema simple, gratuito y 100% tuyo
+
+Con las herramientas de **Google Workspace** puedes gestionar tus alquileres como un profesional, sin pagar por software ni complicarte con nuevas plataformas.
+
+Google Sheets, Calendar, Drive, Gmail y Forms trabajan juntos para ayudarte a **ahorrar tiempo, evitar errores y mantenerlo todo bajo control**.  
+Y lo mejor es que puedes empezar hoy mismo con lo que ya tienes.
+
+Empieza creando tu hoja de seguimiento en Google Sheets y añade, poco a poco, los recordatorios y formularios.  
+En pocos días notarás la diferencia: más orden, menos estrés y una gestión mucho más eficiente.
