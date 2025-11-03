@@ -3,8 +3,10 @@ import { Icon } from 'astro-icon/components';
 import type { CollectionEntry } from 'astro:content';
 import importImage from '~/utils/importImage';
 import { Image } from 'astro:assets';
-import { slugify } from '~/utils/blog';
 
+import { slugify, resolveCoverImagePathFromId, generateSlug } from '~/utils/blogUtils';
+
+// Pass a category or tag to filter the posts displayed
 interface Props {
   posts: CollectionEntry<'blog'>[];
   category?: string;
@@ -51,11 +53,16 @@ const getH1Title = () => {
 
 const h1Title = getH1Title();
 
-// Get the images for the post in order and add them to a list so we can use them in the component
+// Get the images for the posts via resolver
 const images = await Promise.all(
   sortedPosts.map(async (post) => {
-    if (post.data.ogImage) {
-      return await importImage(post.data.ogImage);
+    const path = await resolveCoverImagePathFromId(post.id);
+    if (path) {
+      try {
+        return await importImage(path);
+      } catch {
+        return null;
+      }
     }
     return null;
   })
@@ -72,7 +79,7 @@ const images = await Promise.all(
       sortedPosts.map((post, index) => (
         <li class="group hover:bg-gray-50 rounded-lg transition-colors">
           <article class="p-4">
-            <a href={`/blog/${post.id.split('/').pop()}/`} class="block">
+            <a href={`/blog/${generateSlug(post)}/`} class="block">
               <div class="flex gap-4 items-start">
                 {images[index] && (
                   <div class="flex-shrink-0">

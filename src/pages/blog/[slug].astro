@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import PostLayout from '~/layouts/PostLayout.astro';
+import { generateSlug } from '~/utils/blogUtils';
 
 // Generate a new path for every published blog post
 export async function getStaticPaths() {
@@ -11,7 +12,8 @@ export async function getStaticPaths() {
   // For every published post, extract the language and slug
   const paths = posts.map((post) => {
     const [slug] = post.id.split('/');
-    return { params: { slug }, props: { post } };
+    const generatedSlug = generateSlug(post);
+    return { params: { slug: generatedSlug }, props: { post } };
   });
 
   return paths;
